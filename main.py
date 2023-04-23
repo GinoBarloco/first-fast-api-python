@@ -10,7 +10,7 @@ URL Local: http://127.0.0.1:8000
 """
 from fastapi import FastAPI
 import pprint
-from routers import products, users_db, jwt_auth_users  # , basic_auth_users
+from routers import products, users_db, jwt_auth_users
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
