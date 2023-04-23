@@ -3,6 +3,7 @@ from db.models.user import User
 from db.schemas.user import user_schema, users_schema
 from db.client import users_collection
 from bson import ObjectId
+from typing import List
 
 router = APIRouter(prefix="/usersdb",
                    tags=["usersdb"],  # sirve para agrupar la documentacion
@@ -28,7 +29,7 @@ def search_user(field: str, key):
 ###########################
 
 
-@router.get("/", response_model=list[User])
+@router.get("/", response_model=List[User])
 async def users():
     return users_schema(users_collection.find())
 
