@@ -1,15 +1,13 @@
 import json
 
 
-def user_schema(user) -> str:
+def user_schema(user) -> dict:
     schema_dict = {"id": str(user["_id"]),  # user["_id"] es un objeto, no es str porque romperia la clase User()
                    "username": user["username"],
                    "email": user["email"]}
 
-    schema_json = json.dumps(schema_dict, indent=2)
-
-    return schema_json
+    return schema_dict
 
 
 def users_schema(users) -> list:
-    return [user_schema(user) for user in users]
+    return [json.dumps(user_schema(user), indent=2) for user in users]
