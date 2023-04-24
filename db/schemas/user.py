@@ -10,4 +10,4 @@ def user_schema(user) -> dict:
 
 
 def users_schema(users) -> list:
-    return [json.dumps(user_schema(user), indent=2) for user in users]
+    return [user_schema(user) for user in users]
