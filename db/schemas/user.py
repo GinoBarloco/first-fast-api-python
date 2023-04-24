@@ -1,4 +1,4 @@
-import pprint
+import json
 
 
 def user_schema(user) -> dict:
@@ -6,8 +6,10 @@ def user_schema(user) -> dict:
                    "username": user["username"],
                    "email": user["email"]}
 
-    return schema_dict
+    schema_json = json.loads(schema_dict)
+
+    return schema_json
 
 
 def users_schema(users) -> list:
-    return [pprint.pprint(user_schema(user)) for user in users]
+    return [user_schema(user) for user in users]
