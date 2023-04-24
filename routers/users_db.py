@@ -31,7 +31,7 @@ def search_user(field: str, key):
 
 @router.get("/", response_model=List[User])
 async def users():
-    return users_schema(users_collection.find())
+    return users_schema(users_collection.find().toArray())
 
 
 # Path
