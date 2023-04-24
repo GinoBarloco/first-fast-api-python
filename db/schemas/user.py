@@ -1,7 +1,7 @@
 import json
 
 
-def user_schema(user) -> dict:
+def user_schema(user) -> str:
     schema_dict = {"id": str(user["_id"]),  # user["_id"] es un objeto, no es str porque romperia la clase User()
                    "username": user["username"],
                    "email": user["email"]}
