@@ -6,7 +6,7 @@ def user_schema(user) -> dict:
                    "username": user["username"],
                    "email": user["email"]}
 
-    schema_json = json.loads(schema_dict)
+    schema_json = json.dumps(schema_dict, indent=2)
 
     return schema_json
 
