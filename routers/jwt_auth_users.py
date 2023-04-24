@@ -9,7 +9,9 @@ ALGORITHM = "HS256"  # algoritmo de encriptacion
 ACCESS_TOKEN_DURATION = 1  # 1 minuto de validez para el ACCESS_TOKEN.
 SECRET = "f0c5c15d38aa0541c8a664ff5eb70c442bebf9d5c848d07962f6478d31932659"  # openssl rand -hex 32
 
-router = APIRouter()
+router = APIRouter(prefix="/jwtauth",
+                   tags=["jwtauth"],  # sirve para agrupar la documentacion
+                   responses={status.HTTP_404_NOT_FOUND: {"message": "No encontrado"}})
 
 oauth2 = OAuth2PasswordBearer(tokenUrl="login")
 
